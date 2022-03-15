@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  react-masterclass:
+    image: hyeseong-dev/react-masterclass:1.0
+    container_name: react-masterclass
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: npm start
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
+    networks:
+      - react-masterclass_network
+    
+networks:
+  react-masterclass_network:
+    driver: bridge
